@@ -12,11 +12,11 @@
   width: 330px;
 }
 
-.backspace, .caps, .left-shift {
+.backspace, .capsLock, .shiftLeft {
   width: 100px;
 }
 
-.enter, .right-shift {
+.enter, .shiftRight {
   width: 86px;
 }
 
@@ -28,7 +28,7 @@
   width: 44px;
 }
 
-.glow-on-hover {
+.glow {
   border: none;
   outline: none;
   color: #fff;
@@ -39,7 +39,7 @@
   border-radius: 10px;
 }
 
-.glow-on-hover:before {
+.glow:before {
   content: '';
   background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
   position: absolute;
@@ -51,24 +51,16 @@
   width: calc(100% + 4px);
   height: calc(100% + 4px);
   animation: glowing 20s linear infinite;
-  opacity: 0;
+  opacity: 1;
   transition: opacity .3s ease-in-out;
   border-radius: 10px;
 }
 
-.glow-on-hover:active {
-  color: #000
-}
-
-.glow-on-hover:active:after {
-  background: transparent;
-}
-
-.glow-on-hover:hover:before {
+.glow:hover:before {
   opacity: 1;
 }
 
-.glow-on-hover:after {
+.glow:after {
   z-index: -1;
   content: '';
   position: absolute;
@@ -78,10 +70,17 @@
   left: 0;
   top: 0;
   border-radius: 10px;
+  transition: border-radius 0.3s, background-color 0.3s;
 }
 
 @keyframes glowing {
   0% { background-position: 0 0; }
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
+}
+
+.glow:active:after, .active:after {
+  background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%), linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%), linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+  border-radius: 50px;
+  transition: border-radius 0.3s, background-color 0.3s;
 }
